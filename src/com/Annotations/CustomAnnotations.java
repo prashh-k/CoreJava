@@ -1,10 +1,10 @@
 package com.Annotations;
 
+
 // Program to explain Custom Annotations in Java with built-in meta-annotations
 
 import java.lang.annotation.*;
 import java.lang.reflect.Method;
-
 // Defining a custom annotation with meta-annotations
 @Documented // Ensures this annotation is included in the JavaDocs
 @Target(ElementType.METHOD) // Specifies that this annotation can only be applied to methods
@@ -12,7 +12,6 @@ import java.lang.reflect.Method;
 @Inherited // Allows subclasses to inherit this annotation from the parent class
 @interface CustomAnnotation {
     String value() default "Default Value"; // Default attribute for the annotation
-
     int priority() default 1; // Additional attribute to specify priority
 }
 
@@ -51,8 +50,9 @@ public class CustomAnnotations {
         // Use reflection to retrieve annotation details
         System.out.println("\nUsing reflection to access annotation details:");
 
-        // Access methods in ParentClass and ChildClass
-        for (Method method : ChildClass.class.getDeclaredMethods()) { // Check if the method has the CustomAnnotation
+        // Access all methods in ChildClass
+for (Method method : ChildClass.class.getDeclaredMethods()) {         
+            // Check if the method has the CustomAnnotation
             if (method.isAnnotationPresent(CustomAnnotation.class)) {
                 // Retrieve the annotation
                 CustomAnnotation annotation = method.getAnnotation(CustomAnnotation.class);
