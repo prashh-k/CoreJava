@@ -3,7 +3,7 @@ package com.Collections;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.ListIterator;
-
+   
 public class IteratorAndListIterator {
 
     public static void main(String[] args) {
